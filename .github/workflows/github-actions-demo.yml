@@ -14,7 +14,7 @@ on:
       version:
         description: 'Version'
         required: true
-      token:
+      auth_token:
         description: 'Token'
         required: true
 jobs:
@@ -40,6 +40,6 @@ jobs:
           prerelease: false
           generate_release_notes: false
           append_body: false
-          token:  ${{ inputs.token }}
+          token:  ${{ inputs.auth_token }}
           tag_name: ${{ inputs.version }}
       - run: echo "🍏 This job's status is ${{ job.status }}."

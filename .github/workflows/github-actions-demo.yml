@@ -32,4 +32,10 @@ jobs:
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
+        with:  
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+          append_body: false
+          tag_name: ${{ inputs.version }}
       - run: echo "🍏 This job's status is ${{ job.status }}."

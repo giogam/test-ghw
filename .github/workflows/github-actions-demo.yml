@@ -14,6 +14,9 @@ on:
       version:
         description: 'Version'
         required: true
+      token:
+        description: 'Token'
+        required: true
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -37,5 +40,6 @@ jobs:
           prerelease: false
           generate_release_notes: false
           append_body: false
+          token:  ${{ inputs.token }}
           tag_name: ${{ inputs.version }}
       - run: echo "🍏 This job's status is ${{ job.status }}."

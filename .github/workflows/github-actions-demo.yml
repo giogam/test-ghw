@@ -40,6 +40,6 @@ jobs:
           prerelease: false
           generate_release_notes: false
           append_body: false
-          token:  ${{ inputs.auth_token }}
+          token:  ${{ github.token }}
           tag_name: ${{ inputs.version }}
       - run: echo "🍏 This job's status is ${{ job.status }}."

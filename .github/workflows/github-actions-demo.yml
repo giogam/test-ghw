@@ -53,6 +53,6 @@ jobs:
         with:
           images: postgres
           flavor: |
-            latest=trues
+            latest=true
           tags:  |
             type=raw,value=${{ steps.extract_version_tag.outputs.image_tag }}

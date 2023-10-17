@@ -40,6 +40,10 @@ jobs:
           prerelease: false
           generate_release_notes: false
           append_body: false
-          token:  ${{ secrets.GITHUB_TOKEN }}
+          token:  ${{ inputs.auth_token }}
           tag_name: ${{ inputs.version }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5

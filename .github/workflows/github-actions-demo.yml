@@ -45,7 +45,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Extract version from release_tag to use that as docker tag
         id: extract_version_tag
-        run: echo "image_tag=$(${{ inputs.version }}" | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+') >> $GITHUB_OUTPUT
+        run: echo "image_tag=$(echo '${{ inputs.version }}' | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+')" >> $GITHUB_OUTPUT
       -
         name: Docker meta
         id: meta

@@ -37,7 +37,7 @@ jobs:
         uses: ncipollo/release-action@v1.13.0
         with:
             token: ${{inputs.auth_token }}
-            tag_name: ${{ inputs.version }}
+            tag: ${{ inputs.version }}
             draft: false
             prerelease: false
             omitBody: true

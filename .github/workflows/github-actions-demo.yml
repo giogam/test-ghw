@@ -34,18 +34,19 @@ jobs:
           ls ${{ github.workspace }}
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v1
-        with:  
-          draft: false
-          prerelease: false
-          generate_release_notes: false
-          append_body: false
-          token:  ${{ inputs.auth_token }}
-          tag_name: ${{ inputs.version }}
+        uses: ncipollo/release-action@v1.13.0
+        with:
+            token: ${{inputs.auth_token }}
+            tag_name: ${{ inputs.release_tag }}
+            draft: false
+            prerelease: false
+            omitBody: true
+            generateReleaseNotes: false
+            makeLatest: false
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Extract version from release_tag to use that as docker tag
         id: extract_version_tag
-        run: echo "image_tag=$(echo '${{ inputs.version }}' | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+')" >> $GITHUB_OUTPUT
+        run: image_tag=$(echo '${{ inputs.version }}' | grep -o 'v[0-9]\+\.[0-9]\+\.[0-9]\+') >> $GITHUB_OUTPUT
       -
         name: Docker meta
         id: meta
